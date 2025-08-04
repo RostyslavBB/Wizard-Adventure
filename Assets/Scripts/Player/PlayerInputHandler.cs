@@ -31,12 +31,12 @@ namespace Game.Handlers
 
         public bool FirstSkillAttack()
         {
-            throw new System.NotImplementedException();
+            return true;
         }
 
         public bool SecondSkillAttack()
         {
-            throw new System.NotImplementedException();
+            return false;
         }
 
         public void Enable()

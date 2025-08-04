@@ -4,6 +4,7 @@ using Game.Player;
 using NaughtyAttributes;
 using Zenject;
 using UnityEngine;
+using Game.Camera;
 
 namespace Game.DI
 {
@@ -11,6 +12,7 @@ namespace Game.DI
     {
         [Required, SerializeField] private PlayerView _playerView;
         [Required, SerializeField] private CharacterController _characterController;
+        [Required, SerializeField] private Transform _camera;
 
         public override void InstallBindings()
         {
@@ -25,9 +27,14 @@ namespace Game.DI
 
             Container.Bind<CharacterController>().FromInstance(_characterController).AsSingle();
 
+            Container.Bind<Transform>().WithId("Camera").FromInstance(_camera).AsSingle();
+
             Container.Bind<IPlayerInputHandler>().To<PlayerInputHandler>().AsSingle();
 
             Container.Bind<IPlayerPresenter>().To<PlayerPresenter>().AsSingle().NonLazy();
+
+            Container.Bind<IPlayerMovement>().To<PlayerMovement>().AsSingle().NonLazy();
+            Container.Bind<ICameraRotator>().To<CameraRotator>().AsSingle().NonLazy();
         }
     }
 }

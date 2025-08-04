@@ -14,4 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerModelSettings:
     <MoveSpeed>k__BackingField: 5
-    <RotationSpeed>k__BackingField: 0
+    <JumpHeight>k__BackingField: 20
+  _viewSettings:
+    <GroundLayer>k__BackingField:
+      serializedVersion: 2
+      m_Bits: 8
+    <CheckGroundDistance>k__BackingField: 1.02
+  _gravitySettings:
+    <Gravity>k__BackingField: -9.81
+    <GravityModifier>k__BackingField: 10
+  _cameraSettings:
+    <MouseSpeedX>k__BackingField: 50
+    <MouseSpeedY>k__BackingField: 50
+    <LimitY>k__BackingField: 80

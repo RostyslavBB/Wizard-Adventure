@@ -15,7 +15,7 @@ namespace Game.Player
             _view = view;
             _model = model;
 
-            if (_view.IsEnable == false) Enable();
+            Enable();
         }
 
         private void OnMove(Vector2 direction)
@@ -25,19 +25,35 @@ namespace Game.Player
 
         private void OnRotate(Vector2 direction)
         {
-            Debug.Log(3);
+            _model.UpdateRotation(direction);
+        }
+
+        private void OnJump()
+        {
+            if(_view.IsOnGround())
+                _model.Jump();
+        }
+
+        private void OnApplyPhysics()
+        {
+            if (!_view.IsOnGround())
+                _model.ApplyPhysics();
         }
 
         public void Enable()
         {
             _view.OnMove += OnMove;
             _view.OnRotate += OnRotate;
+            _view.OnJump += OnJump;
+            _view.OnApplyPhysics += OnApplyPhysics;
         }
 
         public void Disable()
         {
             _view.OnMove -= OnMove;
             _view.OnRotate -= OnRotate;
+            _view.OnJump -= OnJump;
+            _view.OnApplyPhysics -= OnApplyPhysics;
         }
 
         public void Dispose()

@@ -717,7 +717,7 @@ GameObject:
   - component: {fileID: 1984390355}
   - component: {fileID: 1984390357}
   - component: {fileID: 1984390356}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -830,6 +830,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerView: {fileID: 935060345}
   _characterController: {fileID: 935060350}
+  _camera: {fileID: 330585546}
 --- !u!4 &2049456998
 Transform:
   m_ObjectHideFlags: 0

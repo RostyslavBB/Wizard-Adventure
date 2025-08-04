@@ -7,5 +7,10 @@ namespace Game.Interfaces
     {
         public event Action<Vector2> OnMove;
         public event Action<Vector2> OnRotate;
+
+        public event Action OnJump;
+        public event Action OnApplyPhysics;
+
+        public bool IsOnGround();
     }
 }
