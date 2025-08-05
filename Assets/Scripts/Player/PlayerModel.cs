@@ -1,4 +1,3 @@
-using Game.Interfaces.Camera;
 using Game.Interfaces.Player;
 using System;
 using UnityEngine;
@@ -8,30 +7,7 @@ namespace Game.Player
 {
     public class PlayerModel : IPlayerModel
     {
-        [Inject] private readonly PlayerSettings _playerSettings;
-
-        [Inject] private readonly IPlayerMovement _playerMovement;
-        [Inject] private readonly ICameraRotator _cameraRotator;
-
-        public void UpdateVelocity(Vector2 direction)
-        {
-            _playerMovement.Move(direction, _playerSettings.MoveSpeed);
-        }
-
-        public void UpdateRotation(Vector2 direction)
-        {
-            _cameraRotator.Rotate(direction);
-        }
-
-        public void Jump()
-        {
-            _playerMovement.Jump(_playerSettings.JumpHeight);
-        }
-
-        public void ApplyPhysics()
-        {
-            _playerMovement.ApplyPhysics();
-        }
+        [Inject] public PlayerSettings PlayerSetting {  get; private set; }
 
         [Serializable]
         public class PlayerSettings

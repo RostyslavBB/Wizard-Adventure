@@ -1,3 +1,4 @@
+using Game.Interfaces.Camera;
 using Game.Interfaces.Player;
 using UnityEngine;
 
@@ -6,38 +7,43 @@ namespace Game.Player
     public class PlayerPresenter : IPlayerPresenter
     {
         private readonly IPlayerView _view;
-        private readonly IPlayerModel _model;
+        private readonly IPlayerMovement _movement;
+        private readonly ICameraRotator _rotator;
+
+        private readonly PlayerModel _model;
 
         public bool IsEnable {  get; private set; }
 
-        public PlayerPresenter(IPlayerView view, IPlayerModel model)
+        public PlayerPresenter(IPlayerView view, PlayerModel model, IPlayerMovement movement, ICameraRotator rotator)
         {
             _view = view;
             _model = model;
+            _movement = movement;
+            _rotator = rotator;
 
             Enable();
         }
 
         private void OnMove(Vector2 direction)
         {
-            _model.UpdateVelocity(direction);
+            _movement.Move(direction, _model.PlayerSetting.MoveSpeed);
         }
 
         private void OnRotate(Vector2 direction)
         {
-            _model.UpdateRotation(direction);
+            _rotator.Rotate(direction);
         }
 
         private void OnJump()
         {
             if(_view.IsOnGround())
-                _model.Jump();
+                _movement.Jump(_model.PlayerSetting.JumpHeight);
         }
 
         private void OnApplyPhysics()
         {
             if (!_view.IsOnGround())
-                _model.ApplyPhysics();
+                _movement.ApplyPhysics();
         }
 
         public void Enable()
