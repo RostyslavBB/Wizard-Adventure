@@ -6,9 +6,9 @@ namespace Game.DI
     {
         public override void InstallBindings()
         {
-            SignalBusInstaller.Install(Container);
+            Container.DeclareSignal<CoinCollected>();
 
-            Container.DeclareSignal<CoinCollectedSignal>();
+            SignalBusInstaller.Install(Container);
         }
     }
 }
