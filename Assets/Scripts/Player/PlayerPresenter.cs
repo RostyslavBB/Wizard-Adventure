@@ -1,4 +1,4 @@
-using Game.Interfaces;
+using Game.Interfaces.Player;
 using UnityEngine;
 
 namespace Game.Player

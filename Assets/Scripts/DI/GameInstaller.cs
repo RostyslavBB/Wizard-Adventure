@@ -1,11 +1,13 @@
 using Game.Handlers;
-using Game.Interfaces;
 using Game.Player;
 using NaughtyAttributes;
 using Zenject;
 using UnityEngine;
 using Game.Camera;
 using Game.Coin;
+using Game.Interfaces.Player;
+using Game.Interfaces.Camera;
+using Game.Interfaces.Coin;
 
 namespace Game.DI
 {
@@ -44,9 +46,9 @@ namespace Game.DI
 
         private void CoinBinds()
         {
-            Container.BindInterfacesAndSelfTo<CoinPresenter>().AsSingle().NonLazy();
+            Container.Bind<ICoinModel>().To<CoinModel>().AsSingle();
 
-            Container.BindInterfacesAndSelfTo<CoinModel>().AsSingle().NonLazy();
+            Container.BindInterfacesAndSelfTo<CoinPresenter>().AsSingle().NonLazy();
 
             Container.BindInterfacesAndSelfTo<CoinUI>().AsSingle().NonLazy();
 

@@ -1,7 +1,8 @@
+using Game.Interfaces.General;
 using System;
 using UnityEngine;
 
-namespace Game.Interfaces
+namespace Game.Interfaces.Player
 {
     public interface IPlayerView : ILifecycle
     {

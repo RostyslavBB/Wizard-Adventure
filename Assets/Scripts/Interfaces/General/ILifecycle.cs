@@ -1,6 +1,6 @@
 using System;
 
-namespace Game.Interfaces
+namespace Game.Interfaces.General
 {
     public interface ILifecycle : IDisposable
     {

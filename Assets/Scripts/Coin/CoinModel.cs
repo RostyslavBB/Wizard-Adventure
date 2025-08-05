@@ -1,8 +1,8 @@
-using Game.DI;
+using Game.Interfaces.Coin;
 
 namespace Game.Coin
 {
-    public class CoinModel 
+    public class CoinModel : ICoinModel
     {
         public void CalculateCoinCount(CoinCollected signal, CoinManager coinController)
         {

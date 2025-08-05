@@ -1,5 +1,5 @@
 using UnityEngine;
-using Game.Interfaces;
+using Game.Interfaces.Player;
 
 namespace Game.Handlers
 {

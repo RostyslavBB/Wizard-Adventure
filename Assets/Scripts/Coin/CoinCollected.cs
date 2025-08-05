@@ -1,6 +1,4 @@
-using Game.Coin;
-
-namespace Game.DI
+namespace Game.Coin
 {
     public class CoinCollected
     {

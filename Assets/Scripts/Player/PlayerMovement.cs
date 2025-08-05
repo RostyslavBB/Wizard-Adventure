@@ -1,4 +1,4 @@
-﻿using Game.Interfaces;
+﻿using Game.Interfaces.Player;
 using System;
 using UnityEngine;
 using Zenject;
@@ -10,7 +10,7 @@ namespace Game.Player
         [Inject] private readonly CharacterController _characterController;
         [Inject] private readonly GravitySettings _gravitySettings;
 
-        private Vector3 _velocity; // 2 різні поля
+        private Vector3 _velocity; 
 
         public void Move(Vector2 direction, float moveSpeed)
         {

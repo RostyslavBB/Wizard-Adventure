@@ -1,3 +1,4 @@
+using Game.Coin;
 using Zenject;
 
 namespace Game.DI

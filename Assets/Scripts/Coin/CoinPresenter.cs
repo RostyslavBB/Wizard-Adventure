@@ -1,15 +1,15 @@
-﻿using Game.DI;
+﻿using Game.Interfaces.Coin;
 using System;
-using System.Collections;
 using Zenject;
+using UnityEngine;
 
 namespace Game.Coin
 {
-    public class CoinPresenter : IInitializable, IDisposable
+    public class CoinPresenter : ICoinPresenter, IInitializable, IDisposable
     {
         private readonly SignalBus _signalBus;
 
-        private readonly CoinModel _coinModel;
+        private readonly ICoinModel _coinModel;
 
         private readonly CoinManager _coinManager;
 
@@ -19,7 +19,7 @@ namespace Game.Coin
 
         private readonly CoinObject _coinObject;
 
-        public CoinPresenter(SignalBus signalBus, CoinModel coinModel, CoinManager сoinManager, CoinUI coinUI,
+        public CoinPresenter(SignalBus signalBus, ICoinModel coinModel, CoinManager сoinManager, CoinUI coinUI,
             CoinParticle coinParticle, CoinObject coinObject)
         {
             _signalBus = signalBus;
@@ -40,7 +40,7 @@ namespace Game.Coin
             _signalBus.Unsubscribe<CoinCollected>(CollectCoin);
         }
 
-        private void CollectCoin(CoinCollected signal)
+        public void CollectCoin(CoinCollected signal)
         {
             _coinModel.CalculateCoinCount(signal, _coinManager);
 

@@ -1,4 +1,5 @@
-using Game.Interfaces;
+using Game.Interfaces.Camera;
+using Game.Interfaces.Player;
 using System;
 using UnityEngine;
 using Zenject;

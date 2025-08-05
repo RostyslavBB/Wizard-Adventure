@@ -1,5 +1,5 @@
-﻿using Game.DI;
-using Game.Interfaces;
+﻿using Game.Interfaces.General;
+using Game.Interfaces.Coin;
 using Game.Player;
 using System.Collections;
 using UnityEngine;
@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Game.Coin
 {
-    public class CoinView : MonoBehaviour, ILifecycle
+    public class CoinView : MonoBehaviour, ICoinView, ILifecycle
     {
         [SerializeField] private int _coinsPerOne;
 
@@ -26,6 +26,11 @@ namespace Game.Coin
             _signalBus = signalBus;
         }
 
+        public void Enable()
+        {
+            gameObject.SetActive(true);
+        }
+
         public void Disable()
         {
             gameObject.SetActive(false);
@@ -33,11 +38,7 @@ namespace Game.Coin
 
         public void Dispose()
         {
-        }
-
-        public void Enable()
-        {
-            gameObject.SetActive(true);
+            
         }
 
         private void OnTriggerEnter(Collider other)

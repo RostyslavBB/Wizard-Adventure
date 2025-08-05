@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Game.Interfaces
+namespace Game.Interfaces.Camera
 {
     public interface ICameraRotator
     {

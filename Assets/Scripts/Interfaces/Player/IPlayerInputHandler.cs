@@ -1,6 +1,7 @@
+using Game.Interfaces.General;
 using UnityEngine;
 
-namespace Game.Interfaces
+namespace Game.Interfaces.Player
 {
     public interface IPlayerInputHandler : ILifecycle
     {
